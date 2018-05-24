@@ -7,10 +7,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 const routes: Routes = [
   {
     path: 'posts',
-    children: [
-      { path: '', component: PostListComponent },
-      { path: ':id', component: PostDetailComponent }
-    ]
+    loadChildren: './posts/posts.module#PostsModule'
   },
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }

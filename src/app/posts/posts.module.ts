@@ -7,9 +7,10 @@ import { PostItemComponent } from './components/post-item/post-item.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentItemComponent } from './components/comment-item/comment-item.component';
+import { PostsRoutingModule } from './posts-routing.module';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NgbPaginationModule],
+  imports: [CommonModule, PostsRoutingModule, NgbPaginationModule],
   declarations: [
     PostListComponent,
     PostItemComponent,
