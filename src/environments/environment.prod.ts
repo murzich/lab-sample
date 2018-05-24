@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  hmt: false
+  hmr: false,
+  apiBase: 'http://localhost:3030'
 };
