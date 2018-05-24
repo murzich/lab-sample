@@ -5,10 +5,15 @@ import { PostDetailComponent } from './posts/post-detail/post-detail.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 
 const routes: Routes = [
-  { path: 'posts', component: PostListComponent },
-  { path: 'posts/:id', component: PostDetailComponent },
+  {
+    path: 'posts',
+    children: [
+      { path: '', component: PostListComponent },
+      { path: ':id', component: PostDetailComponent }
+    ]
+  },
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
