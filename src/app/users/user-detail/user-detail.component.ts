@@ -7,6 +7,7 @@ import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { User } from '../../core/models/user';
 import { UsersService } from '../../core/users.service';
 import { Todo } from '../../core/models/todo';
+import { TodosService } from '../../core/todos.service';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private usersService: UsersService,
+    private todosService: TodosService,
     private route: ActivatedRoute
   ) {}
 
@@ -36,11 +38,11 @@ export class UserDetailComponent implements OnInit, OnDestroy {
         switchMap(params => this.loadUser(+params['id']))
       )
       .subscribe(
-        user => {
+        ((user) => {
           this.user = user;
           this.todos = user.todos;
           this.loading$.next(false);
-        },
+        }),
         err => {
           this.loading$.next(false);
         }
@@ -54,6 +56,11 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   }
 
   private loadUser(id) {
-    return this.usersService.todos(id);
+    return this.usersService.getUserTodo(id);
+  }
+
+  public toggle(id: number, state: boolean) {
+    this.todosService.toggleCompleting(id, state)
+      .subscribe();
   }
 }

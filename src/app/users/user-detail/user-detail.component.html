@@ -10,9 +10,10 @@
   <h2>Todo list</h2>
   <ul class="todo-list">
     <li class="todo-item" *ngFor="let todo of todos">
-      <input type="checkbox" [checked]="todo?.completed">
-      {{todo?.title}} - #{{todo?.id}}
+      <label>
+        <input type="checkbox" [checked]="todo?.completed" (click)="toggle(todo.id, todo.completed)">
+        {{todo?.title}} - #{{todo?.id}}
+      </label>
     </li>
   </ul>
 </ng-template>
-
