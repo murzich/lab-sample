@@ -10,7 +10,7 @@ import { User } from './models/user';
 export class UsersService {
   constructor(private api: HttpClient) {}
 
-  list(page = 1, perPage = 10) {
+  list(page = 1, perPage = 5) {
     const params = {
       _limit: perPage.toString(),
       _page: page.toString()

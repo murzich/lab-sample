@@ -6,4 +6,14 @@
       <a href="" [routerLink]="user?.id">{{user.username}}</a>
     </li>
   </ul>
+  <ngb-pagination [collectionSize]="total"
+                  [page]="page$ | async"
+                  (pageChange)="changePage($event)"
+                  [maxSize]="5"
+                  [rotate]="true"
+                  [ellipses]="false"
+                  [pageSize]="5"
+                  [boundaryLinks]="true">
+
+  </ngb-pagination>
 </ng-template>
