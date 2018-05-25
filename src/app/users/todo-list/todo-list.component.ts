@@ -35,14 +35,14 @@ export class TodoListComponent implements OnInit, OnDestroy {
           this.loading$.next(true);
         }),
         takeUntil(this.destroy),
-        switchMap(params => this.loadUser(+params['id']))
+        switchMap(params => this.loadUser(params['username']))
       )
       .subscribe(
-        ((user) => {
+        user => {
           this.user = user;
           this.todos = user.todos;
           this.loading$.next(false);
-        }),
+        },
         () => {
           this.loading$.next(false);
         }
@@ -55,8 +55,8 @@ export class TodoListComponent implements OnInit, OnDestroy {
     this.loading$.complete();
   }
 
-  private loadUser(id) {
-    return this.todosService.getUserTodo(id);
+  private loadUser(username) {
+    return this.todosService.getUserTodo(username);
   }
 
   public toggle(id: number, state: boolean) {

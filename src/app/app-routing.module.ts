@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: './posts/posts.module#PostsModule'
   },
   { path: 'todos', redirectTo: '/users', pathMatch: 'full' },
-  { path: 'users/:id', redirectTo: '/todos/:id', pathMatch: 'full' },
+  { path: 'users/:username', redirectTo: '/todos/:username', pathMatch: 'full' },
   {
     path: 'users',
     loadChildren: './users/users.module#UsersModule'

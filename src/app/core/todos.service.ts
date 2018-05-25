@@ -4,6 +4,7 @@ import { Todo } from './models/todo';
 import { ApiUrls } from './api-urls';
 import { Observable } from 'rxjs';
 import { User } from './models/user';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +22,16 @@ export class TodosService {
   }
 
 
-  public getUserTodo(id) {
-    return this.api.get<User>(`${ApiUrls.users}/${id}`, {
-      params: { _embed: 'todos'}
-    });
+  public getUserTodo(username) {
+    return this.api.get<User>(ApiUrls.users, {
+      params: {
+        username: username,
+        _embed: 'todos'
+      }
+    })
+      .pipe(
+        map(userArray => userArray[0])
+      );
   }
 
 }

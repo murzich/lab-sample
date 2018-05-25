@@ -3,7 +3,7 @@
   <h1>Users</h1>
   <ul class="users-list">
     <li class="users-item" *ngFor="let user of users">
-      <a href="" [routerLink]="user?.id">{{user.username}}</a>
+      <a href="" [routerLink]="user?.username">{{user.username}}</a>
     </li>
   </ul>
   <ngb-pagination [collectionSize]="total"
