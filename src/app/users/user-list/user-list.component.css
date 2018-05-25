@@ -1,0 +1,10 @@
+.users-list {
+  list-style: none;
+  padding-left: 0;
+}
+.users-item {
+  margin-bottom: .5rem;
+}
+.users-item > a {
+  color: inherit;
+}

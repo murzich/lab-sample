@@ -1,19 +1,9 @@
 <h1 *ngIf="loading$|async; else content">Loading</h1>
 <ng-template #content>
-  <ul *ngFor="let user of users">
-    <li>{{user.name}}</li>
+  <h1>Users</h1>
+  <ul class="users-list">
+    <li class="users-item" *ngFor="let user of users">
+      <a href="" [routerLink]="user?.id">{{user.username}}</a>
+    </li>
   </ul>
-  <div class="mt-4 text-center">
-    <ngb-pagination [collectionSize]="total"
-                    [page]="page$ | async"
-                    (pageChange)="changePage($event)"
-                    [maxSize]="5"
-                    [rotate]="true"
-                    [ellipses]="false"
-                    [pageSize]="10"
-                    [boundaryLinks]="true">
-
-    </ngb-pagination>
-
-  </div>
 </ng-template>

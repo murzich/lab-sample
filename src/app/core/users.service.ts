@@ -29,12 +29,9 @@ export class UsersService {
       );
   }
 
-  detail(id) {
-    return this.api.get<User>(`${ApiUrls.users}/${id}`, {
-      params: {
-        _expand: 'user',
-        _embed: 'comments'
-      }
+  todos(id) {
+    return this.api.get<User[]>(`${ApiUrls.users}/${id}`, {
+      params: { _embed: 'todos'}
     });
   }
 }

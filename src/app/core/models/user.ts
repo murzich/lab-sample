@@ -1,3 +1,5 @@
+import { Todo } from './todo';
+
 export interface Geo {
   lat: string;
   lng: string;
@@ -26,4 +28,5 @@ export interface User {
   phone: string;
   website: string;
   company: Company;
+  todos?: Todo[];
 }
