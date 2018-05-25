@@ -28,17 +28,4 @@ export class UsersService {
         })
       );
   }
-
-
-  getUserTodo(id) {
-    return this.api.get<User>(`${ApiUrls.users}/${id}`, {
-      params: { _embed: 'todos'}
-    });
-  }
-
-  todos(id) {
-    return this.api.get<User[]>(`${ApiUrls.users}/${id}`, {
-      params: { _embed: 'todos'}
-    });
-  }
 }

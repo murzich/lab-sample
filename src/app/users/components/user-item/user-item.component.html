@@ -1,5 +1,0 @@
-<h3 class="user-title"><a href="" [routerLink]="[user?.id]">{{user?.title| titlecase}}</a></h3>
-<p class="user-short">{{user?.body | slice: 0: 200}} <ng-container *ngIf="user?.body?.length > 200">...</ng-container></p>
-<p class="user-help">
-  Author: {{user?.name}}
-</p>
