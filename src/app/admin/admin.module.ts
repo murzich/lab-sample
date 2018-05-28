@@ -6,6 +6,8 @@ import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { AdminComponent } from './admin.component';
+import { PostResolver } from './posts/post.resolver';
 
 @NgModule({
   imports: [
@@ -16,11 +18,15 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     UsersComponent,
     PostsComponent,
     EditPostComponent,
-    EditUserComponent
+    EditUserComponent,
+    AdminComponent
   ],
   exports: [
     UsersComponent,
     PostsComponent,
+  ],
+  providers: [
+    PostResolver
   ]
 })
 export class AdminModule { }
