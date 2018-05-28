@@ -5,6 +5,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UserListComponent } from './user-list/user-list.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { TodoListResolver } from './todo-list.resolver';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     UsersRoutingModule,
     NgbPaginationModule
   ],
+  providers: [TodoListResolver],
   declarations: [UserListComponent, TodoListComponent]
 })
 export class UsersModule { }

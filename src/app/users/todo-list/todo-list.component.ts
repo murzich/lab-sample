@@ -17,7 +17,7 @@ import { TodosService } from '../../core/todos.service';
 })
 export class TodoListComponent implements OnInit, OnDestroy {
 
-  public loading$ = new BehaviorSubject(true);
+  public loading$ = new BehaviorSubject(false);
   private destroy = new Subject();
   public user: User;
   public todos: Todo[];
@@ -29,22 +29,14 @@ export class TodoListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.route.params
-      .pipe(
-        tap(() => {
-          this.loading$.next(true);
-        }),
-        takeUntil(this.destroy),
-        switchMap(params => this.loadUser(params['username']))
-      )
+    this.route.data
       .subscribe(
-        user => {
-          this.user = user;
-          this.todos = user.todos;
-          this.loading$.next(false);
+        data => {
+          this.user = data.user;
+          this.todos = data.user.todos;
         },
         () => {
-          this.loading$.next(false);
+          console.error(new Error('AHHHR! RSALVOR!'));
         }
       );
   }
