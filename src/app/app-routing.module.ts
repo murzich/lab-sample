@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'todos',
     loadChildren: './users/users.module#UsersModule'
   },
+  {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
+  },
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
