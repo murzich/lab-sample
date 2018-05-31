@@ -9,13 +9,19 @@ import { PostResolver } from './posts/post.resolver';
 import { UsersResolver } from './users/users.resolver';
 import { EditUserResolver } from './edit-user/edit-user.resolver';
 import { EditPostResolver } from './edit-post/edit-post.resolver';
+import { AuthGuardService } from '../core/auth-guard.service';
 
 const routes: Routes = [
-  {path: 'posts', component: PostsComponent, resolve: {posts: PostResolver}},
-  {path: 'posts/:id', component: EditPostComponent, resolve: {post: EditPostResolver}},
-  {path: 'users', component: UsersComponent, resolve: {users: UsersResolver}},
-  {path: 'users/:id', component: EditUserComponent, resolve: {user: EditUserResolver}},
-  {path: '', component: AdminComponent},
+  {
+    path: '',
+    component: AdminComponent,
+    canActivateChild: [AuthGuardService],
+    children: [
+      {path: 'posts', component: PostsComponent, resolve: {posts: PostResolver}},
+      {path: 'posts/:id', component: EditPostComponent, resolve: {post: EditPostResolver}},
+      {path: 'users', component: UsersComponent, resolve: {users: UsersResolver}},
+      {path: 'users/:id', component: EditUserComponent, resolve: {user: EditUserResolver}},
+    ]}
 ];
 
 @NgModule({
