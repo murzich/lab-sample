@@ -5,13 +5,14 @@ import { UsersComponent } from './users/users.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { AdminComponent } from './admin.component';
+import { PostResolver } from './posts/post.resolver';
 
 const routes: Routes = [
-  {path: '', component: AdminComponent},
-  {path: 'posts', component: PostsComponent},
+  {path: 'posts', component: PostsComponent, resolve: {posts: PostResolver}},
   {path: 'users', component: UsersComponent},
   {path: 'edit-user', component: EditUserComponent},
   {path: 'edit-post', component: EditPostComponent},
+  {path: '', component: AdminComponent},
 ];
 
 @NgModule({

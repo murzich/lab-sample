@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PostResolver } from './post.resolver';
 import { Post } from '../../core/models/post';
 import { ActivatedRoute } from '@angular/router';
 
@@ -7,7 +6,6 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css'],
-  providers: []
 })
 export class PostsComponent implements OnInit {
 
@@ -20,7 +18,7 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.route.data
       .subscribe(
-        data => console.log(data)
+        data => this.posts = data.posts
       );
   }
 
