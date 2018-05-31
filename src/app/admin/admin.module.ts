@@ -9,6 +9,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { AdminComponent } from './admin.component';
 import { PostResolver } from './posts/post.resolver';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { UsersResolver } from './users/users.resolver';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     PostsComponent,
   ],
   providers: [
-    PostResolver
+    PostResolver,
+    UsersResolver
   ]
 })
 export class AdminModule { }
