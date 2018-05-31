@@ -12,19 +12,23 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersResolver } from './users/users.resolver';
 import { EditUserResolver } from './edit-user/edit-user.resolver';
 import { EditPostResolver } from './edit-post/edit-post.resolver';
+import { PostFormComponent } from './posts/post-form/post-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     NgbPaginationModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [
     UsersComponent,
     PostsComponent,
     EditPostComponent,
     EditUserComponent,
-    AdminComponent
+    AdminComponent,
+    PostFormComponent
   ],
   exports: [
     UsersComponent,
