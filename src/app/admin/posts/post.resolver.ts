@@ -6,13 +6,19 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
-export class PostResolver implements Resolve<Post[]> {
+export class PostResolver implements Resolve<any> {
   constructor(private posts: PostsService) {}
 
-  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Post[]> | Promise<Post[]> | Post[] {
-    return this.posts.list()
+  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
+    return this.posts.list(route.params.page)
       .pipe(
-        map(data => data.data )
+        map(data => {
+          return {
+            posts: data.data,
+            total: data.total,
+            page: data.page
+          };
+        } )
       );
   }
 }

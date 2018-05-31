@@ -8,10 +8,12 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { AdminComponent } from './admin.component';
 import { PostResolver } from './posts/post.resolver';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
+    NgbPaginationModule,
     AdminRoutingModule
   ],
   declarations: [

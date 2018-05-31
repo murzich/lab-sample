@@ -9,3 +9,13 @@
     <a href="" routerLink="{{post.id}}">{{post.title}}</a>
   </li>
 </ul>
+<ngb-pagination [collectionSize]="total"
+                [page]="page$ | async"
+                (pageChange)="changePage($event)"
+                [maxSize]="5"
+                [rotate]="true"
+                [ellipses]="false"
+                [pageSize]="10"
+                [boundaryLinks]="true">
+
+</ngb-pagination>
