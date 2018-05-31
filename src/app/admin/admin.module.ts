@@ -11,6 +11,7 @@ import { PostResolver } from './posts/post.resolver';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersResolver } from './users/users.resolver';
 import { EditUserResolver } from './edit-user/edit-user.resolver';
+import { EditPostResolver } from './edit-post/edit-post.resolver';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { EditUserResolver } from './edit-user/edit-user.resolver';
   providers: [
     PostResolver,
     EditUserResolver,
+    EditPostResolver,
     UsersResolver
   ]
 })
