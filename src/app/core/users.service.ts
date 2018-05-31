@@ -28,4 +28,8 @@ export class UsersService {
         })
       );
   }
+  getUser(id) {
+    return this.api
+      .get<User>(ApiUrls.users + '/' + id);
+  }
 }

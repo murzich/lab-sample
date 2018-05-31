@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../core/models/user';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-user',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditUserComponent implements OnInit {
 
-  constructor() { }
+  public user: User;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data
+      .subscribe(
+        data => this.user = data.user
+      );
   }
 
 }

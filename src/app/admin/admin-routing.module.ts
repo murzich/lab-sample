@@ -7,12 +7,13 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { AdminComponent } from './admin.component';
 import { PostResolver } from './posts/post.resolver';
 import { UsersResolver } from './users/users.resolver';
+import { EditUserResolver } from './edit-user/edit-user.resolver';
 
 const routes: Routes = [
   {path: 'posts', component: PostsComponent, resolve: {posts: PostResolver}},
-  {path: 'posts/:id', component: EditUserComponent},
+  {path: 'posts/:id', component: EditPostComponent},
   {path: 'users', component: UsersComponent, resolve: {users: UsersResolver}},
-  {path: 'users/:id', component: EditPostComponent},
+  {path: 'users/:id', component: EditUserComponent, resolve: {user: EditUserResolver}},
   {path: '', component: AdminComponent},
 ];
 

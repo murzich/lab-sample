@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { User } from '../../core/models/user';
 import { UsersService } from '../../core/users.service';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class UsersResolver implements Resolve<User[]> {
@@ -16,8 +16,7 @@ export class UsersResolver implements Resolve<User[]> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User[]> | Promise<User[]> | User[] {
     return this.users.list(this.page, this.perPage)
       .pipe(
-        map(data => data.data),
-        tap(data => console.log(data))
+        map(data => data.data)
       );
   }
 }

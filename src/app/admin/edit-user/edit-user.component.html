@@ -1,3 +1,23 @@
-<p>
-  edit-user works!
-</p>
+<div class="jumbotron">
+  <h1>{{user.name}}</h1>
+  <p class="lead">@{{user.username}} - #{{user.id}}</p>
+</div>
+<div>
+  <h2>Contact info</h2>
+  <p>{{user.email}}</p>
+  <p>{{user.website}}</p>
+  <p>{{user.phone}}</p>
+  <div>
+    <h3>Address</h3>
+    <p>{{user.address.street}}</p>
+    <p>{{user.address.suite}}</p>
+    <p>{{user.address.city}}</p>
+    <p>{{user.address.zipcode}}</p>
+    <p>Geolocation: {{user.address.geo.lat}} - {{user.address.geo.lng}}</p>
+  </div>
+  <div>
+    <h3>Company</h3>
+    <p>catchPhrase: {{user.company.catchPhrase}}</p>
+    <p>bs: {{user.company.bs}}</p>
+  </div>
+</div>

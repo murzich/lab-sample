@@ -10,6 +10,7 @@ import { AdminComponent } from './admin.component';
 import { PostResolver } from './posts/post.resolver';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersResolver } from './users/users.resolver';
+import { EditUserResolver } from './edit-user/edit-user.resolver';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { UsersResolver } from './users/users.resolver';
   ],
   providers: [
     PostResolver,
+    EditUserResolver,
     UsersResolver
   ]
 })
