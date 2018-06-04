@@ -14,6 +14,7 @@ import { EditUserResolver } from './edit-user/edit-user.resolver';
 import { EditPostResolver } from './edit-post/edit-post.resolver';
 import { PostFormComponent } from './posts/post-form/post-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TestFormComponent } from './edit-user/test-form/test-form.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     EditPostComponent,
     EditUserComponent,
     AdminComponent,
-    PostFormComponent
+    PostFormComponent,
+    TestFormComponent
   ],
   exports: [
     UsersComponent,

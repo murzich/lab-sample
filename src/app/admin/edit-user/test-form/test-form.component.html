@@ -1,0 +1,26 @@
+<form [formGroup]="testForm">
+  <label> Your name:
+    <input type="text" formControlName="name">
+  </label>
+  <label> Your email:
+    <input type="email" formControlName="email">
+  </label>
+  <label>Some number, must be gt 3, but lt 5:
+    <input formControlName="number" type="number">
+  </label>
+  <div>SN: {{testForm.get('number').errors | json}}</div>
+  <div formArrayName="abilities">
+    <label *ngFor="let ability of abilities.controls; let i = index">Ability #{{i+1}}
+      <input type="text" [formControlName]="i">
+      <button type="button" (click)="removeAbility(i)">remove</button>
+      <div class="row">
+        {{ability.errors}}
+      </div>
+    </label>
+  </div>
+  <button type="button" (click)="addNewAbility()">add ability</button>
+</form>
+<div class="jumbotron">
+  {{ testForm.value | json }}
+</div>
+
