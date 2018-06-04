@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SomeNumberValidator } from './custom-validators';
 
 @Component({
@@ -9,9 +9,9 @@ import { SomeNumberValidator } from './custom-validators';
 })
 export class TestFormComponent implements OnInit {
   testForm = new FormGroup({
-    name: new FormControl(),
+    name: new FormControl('', Validators.minLength(3)),
     email: new FormControl(),
-    number: new FormControl('', SomeNumberValidator),
+    number: new FormControl('', SomeNumberValidator()),
     abilities: new FormArray([])
   });
   constructor() { }

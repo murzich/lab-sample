@@ -8,6 +8,7 @@
   <label>Some number, must be gt 3, but lt 5:
     <input formControlName="number" type="number">
   </label>
+  <div *ngIf="number.errors">{{number.errors | json}}</div>
   <div>SN: {{testForm.get('number').errors | json}}</div>
   <div formArrayName="abilities">
     <label *ngFor="let ability of abilities.controls; let i = index">Ability #{{i+1}}
